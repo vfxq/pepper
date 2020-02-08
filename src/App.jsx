@@ -5,7 +5,6 @@ import { Employees } from '@src/pages/employees';
 
 import './styles/main.scss';
 
-
 const App = () => (
     <Provider store={store}>
         <Employees />
