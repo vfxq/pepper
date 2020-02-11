@@ -1,0 +1,12 @@
+.pager_buttons {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 24px;
+	
+	.page_counter {
+		margin: 0 24px;
+		span {
+			line-height: 32px;
+		}
+	}
+}

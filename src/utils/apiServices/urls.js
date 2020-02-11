@@ -1,0 +1,1 @@
+export const apiBase = 'https://cors-anywhere.herokuapp.com/https://hiring.rewardgateway.net';

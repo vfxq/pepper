@@ -1,0 +1,20 @@
+{
+    "presets": [ "@babel/env", "@babel/react" ],
+    "plugins": [ 
+        "@babel/plugin-proposal-class-properties",
+        ["@babel/plugin-transform-runtime"],
+        ["import", { "libraryName": "antd", "style": true}],
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "test": "./test",
+                "underscore": "lodash",
+                "@src": "./src",
+                "@pages": "./src/pages",
+                "@utils": "./src/utils",
+                "@images": "./src/images"           
+            }
+        }]
+          
+    ]
+}
