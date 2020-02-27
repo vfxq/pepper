@@ -2,9 +2,18 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DivLoader } from '@src/components/loaders';
 import { Row, Col } from 'antd';
-import { Pager } from '@src/components/pager';
 import { getData } from '@src/store/actions/data';
 import './style.scss'
+
+const renderParams = params => {
+    const data = []
+
+    for(const item in params){
+        console.log(item, params[item])
+        data.push(<li>{item}: {params[item]}</li>);
+    }
+    return data;
+}
 
 export const Menu = () => {
     const dispatch = useDispatch();
@@ -49,6 +58,14 @@ export const Menu = () => {
                                 </Col>
                                 <Col span={2} offset={1}>
                                     {value.price}
+                                </Col>
+                                <Col span={3} offset={1}>
+                                    {/* {value.nutritionalInformation} */}
+                                    <ul>
+                                        {
+                                            renderParams(value.nutritionalInformation)
+                                        }
+                                    </ul>
                                 </Col>
                                 <Col span={2}>
                                     {value.quantity}
