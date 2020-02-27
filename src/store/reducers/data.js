@@ -10,7 +10,8 @@ const itemModel = Record({
     description:  null,
     price: null,
     nutritionalInformation: {},
-    quantity: null
+    quantity: null,
+    uuid: null
 })
 
 const info = Record({

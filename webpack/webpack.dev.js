@@ -27,8 +27,8 @@ module.exports = merge(common, {
             'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
         },
         proxy: {
-            '/api':{
-                //target: 'https://192.168.0.1/', 
+            '/':{
+                target: 'http://frontend-challenge-api.pepperhq.com/menu.json', 
                 secure: false,
                 changeOrigin: true,
             },
