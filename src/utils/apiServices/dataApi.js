@@ -1,11 +1,11 @@
 import { apiBase } from './urls';
 import { request, getRequestConfig } from '@src/utils/apiServices/api';
 
-export const urlEmpoyeesList = `${apiBase}/list`;
+export const urlData = `${apiBase}`;
 
-export const getEmpoyeesApi = () => {
+export const getDataApi = () => {
     return request({
         ...getRequestConfig,
-        url: urlEmpoyeesList
+        url: urlData
     })
 };

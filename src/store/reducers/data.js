@@ -2,21 +2,26 @@ import {Map, Record} from 'immutable';
 import { jsonToMap } from '@src/utils/structures';
 import user from '@src/images/static/user.png';
 import { 
-    GET_EMPLOYEES_START, GET_EMPLOYEES_SUCCESS, GET_EMPLOYEES_ERROR,
+    GET_DATA_START, GET_DATA_SUCCESS, GET_DATA_ERROR,
 } from '../types';
 
-const EmployeeModel = Record({
-    uuid: null,
-    avatar: user,
-    company: null,
-    bio: null,
+const itemModel = Record({
     name:  null,
-    title:  null,
-    meta: {}
+    description:  null,
+    price: null,
+    nutritionalInformation: {},
+    quantity: null
+})
+
+const info = Record({
+    locationId: null,
+    locationTitle: null,
+    address: null
 })
 
 const ReducerState = Record({
-	data: new Map(),
+    info: info,
+    items: new Map(),
 	notify: false,
 	loading: false
 })
@@ -24,16 +29,19 @@ const ReducerState = Record({
 
 export default (state = new ReducerState(), action) => {
     switch (action.type) {
-        case GET_EMPLOYEES_START:
+        case GET_DATA_START:
             return state
 	 		 	.set('notify', false)
 	 		 	.set('loading', true);
-        case GET_EMPLOYEES_SUCCESS:
+        case GET_DATA_SUCCESS:
+            const {items, ...info} = action.payload;
+            
             return state
-                .set('data', jsonToMap(action.payload, EmployeeModel))
+                .set('info', info)
+                .set('items', jsonToMap(action.payload, itemModel))
 	 		 	.set('notify', false)
 	 		 	.set('loading', false);
-        case GET_EMPLOYEES_ERROR:
+        case GET_DATA_ERROR:
             return state
 	 		 	.set('notify', action.error)
 	 		 	.set('loading', false);

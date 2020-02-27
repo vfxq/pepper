@@ -1,1 +1,1 @@
-export const apiBase = 'https://cors-anywhere.herokuapp.com/https://hiring.rewardgateway.net';
+export const apiBase = 'https://cors-anywhere.herokuapp.com/http://frontend-challenge-api.pepperhq.com/menu.json';
