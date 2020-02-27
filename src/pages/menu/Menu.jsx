@@ -11,7 +11,7 @@ const renderParams = params => {
     const data = []
 
     for(const item in params){
-        data.push(<li key={item}>{item}: <Input defaultValue={params[item]} style={{'width': '50px'}}/></li>);
+        data.push(<li key={item}>{item}: <Input defaultValue={params[item]} style={{'width': '80px'}}/></li>);
     }
     return data;
 }
@@ -35,9 +35,6 @@ export const Menu = () => {
         dispatch(getData);
     }, []);
 
-    const handleClick = ev => {
-
-    }
     return (
         <DivLoader loading={loading}>
             <div className="container">
@@ -60,10 +57,10 @@ export const Menu = () => {
                                 <Col span={5}>
                                     <TextArea defaultValue={value.description} />
                                 </Col>
-                                <Col span={3} offset={1}>
+                                <Col span={3}>
                                     <Input defaultValue={value.price} />
                                 </Col>
-                                <Col span={4} offset={1}>
+                                <Col span={5} offset={1}>
                                     <ul>
                                         {
                                             renderParams(value.nutritionalInformation)

@@ -1,6 +1,13 @@
 body {
+    .container {
+        min-height: 100vh;
+    }
     .ant-input {
         border-color: transparent
+    }
+
+    textarea {
+        resize:none
     }
 }
 .vertical_align {
@@ -8,9 +15,4 @@ body {
 	margin-bottom: auto;
 }
 
-.content__position-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
