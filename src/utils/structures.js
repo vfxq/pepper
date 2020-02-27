@@ -1,12 +1,9 @@
   
 import { Map } from 'immutable';
+import uuid from 'uuid';
 
 export const jsonToMap = (data, Model) => {
-  	let newData = [];
+    data.forEach(item => item.uuid = uuid());
 	
-	for(const item in data){
-		newData.push(data[item]);
-	}
-	
- 	return newData.reduce((acc, el) => acc.set(el.uuid, new Model(el)), new Map({}));
+    return data.reduce((acc, el) => acc.set(el.uuid, new Model(el)), new Map({}));
 }

@@ -9,12 +9,12 @@ import './style.scss'
 export const Menu = () => {
     const dispatch = useDispatch();
    
-    const {loading, info, items, notify} = useSelector(state => {
+    const {loading, info, itemsList, notify} = useSelector(state => {
         
         const data = {
             loading: state.data.get('loading'),
             info: state.data.get('info'),
-            items: state.data.get('items'),
+            itemsList: state.data.get('itemsList'),
             notify: state.data.get('notify'),
         }
 
@@ -26,7 +26,7 @@ export const Menu = () => {
     }, []);
 
 
-    console.log('loading', loading, info, items, notify);
+    // console.log('loading', loading, info, itemsList, notify);
     return (
         <DivLoader loading={loading}>
             <div className='container'>
