@@ -23,7 +23,6 @@ const info = Record({
 const ReducerState = Record({
     info: info,
     itemsList: new Map(),
-	notify: false,
 	loading: false
 })
 
@@ -32,7 +31,6 @@ export default (state = new ReducerState(), action) => {
     switch (action.type) {
         case GET_DATA_START:
             return state
-	 		 	.set('notify', false)
 	 		 	.set('loading', true);
         case GET_DATA_SUCCESS:
             const {items, ...info} = action.payload;
@@ -40,11 +38,9 @@ export default (state = new ReducerState(), action) => {
             return state
                 .set('info', info)
                 .set('itemsList', jsonToMap(items, itemModel))
-	 		 	.set('notify', false)
 	 		 	.set('loading', false);
         case GET_DATA_ERROR:
             return state
-	 		 	.set('notify', action.error)
 	 		 	.set('loading', false);
         default:
             return state;

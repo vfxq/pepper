@@ -5,7 +5,6 @@ import uuid from 'uuid';
 export const jsonToMap = (data, Model) => {
     data.forEach(item => item.uuid = uuid());
     const handle = data.reduce((acc, el) => acc.set(el.uuid, new Model(el)), new Map({}));
-    console.log('data', handle)
 
     return handle
 }

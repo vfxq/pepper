@@ -19,7 +19,7 @@ const renderParams = params => {
 export const Menu = () => {
     const dispatch = useDispatch();
    
-    const {loading, info, itemsList, notify} = useSelector(state => {
+    const {loading, info, itemsList } = useSelector(state => {
         
         const data = {
             loading: state.data.get('loading'),
