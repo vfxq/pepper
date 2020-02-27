@@ -1,16 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DivLoader } from '@src/components/loaders';
-import { Row, Col } from 'antd';
+import { Row, Col, Input } from 'antd';
 import { getData } from '@src/store/actions/data';
 import './style.scss'
+
+const { TextArea } = Input;
 
 const renderParams = params => {
     const data = []
 
     for(const item in params){
-        console.log(item, params[item])
-        data.push(<li>{item}: {params[item]}</li>);
+        data.push(<li key={item}>{item}: <Input defaultValue={params[item]} /></li>);
     }
     return data;
 }
@@ -34,6 +35,9 @@ export const Menu = () => {
         dispatch(getData);
     }, []);
 
+    const handleClick = ev => {
+
+    }
     return (
         <DivLoader loading={loading}>
             <div className="container">
@@ -50,17 +54,16 @@ export const Menu = () => {
                     {
                         itemsList.toArray().map(value => 
                             <Row key={value.uuid}>
-                                <Col span={3} offset={1}>
-                                    {value.name}
+                                <Col span={3} >
+                                    <Input defaultValue={value.name} />
                                 </Col>
                                 <Col span={5}>
-                                    {value.description}
+                                    <TextArea defaultValue={value.description} />
                                 </Col>
                                 <Col span={2} offset={1}>
-                                    {value.price}
+                                    <Input defaultValue={value.price} />
                                 </Col>
                                 <Col span={3} offset={1}>
-                                    {/* {value.nutritionalInformation} */}
                                     <ul>
                                         {
                                             renderParams(value.nutritionalInformation)
@@ -68,7 +71,7 @@ export const Menu = () => {
                                     </ul>
                                 </Col>
                                 <Col span={2}>
-                                    {value.quantity}
+                                    <Input defaultValue={value.quantity} />
                                 </Col>
                             </Row>
                         )
