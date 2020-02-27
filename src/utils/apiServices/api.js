@@ -4,7 +4,6 @@ const commonRequestConfig = {
     headers: {
         'Cache-Control': 'no-cache',
         Pragma: 'no-cache',
-        Authorization: 'Basic aGFyZDpoYXJk',
         Accept: 'application/json',
     },
     data: {},
